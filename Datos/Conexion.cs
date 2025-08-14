@@ -11,7 +11,7 @@ namespace Datos
     public static class Conexion
     {
         public static string connectionString =
-            "Server=localhost;Database=BD_Talmatch;Integrated Security=True;TrustCertificate=True;";
+            "Server=localhost;Database=BD_Talmatch;Integrated Security=True;Trust Server Certificate=True;";
 
         
         static public SqlConnection conectarBD()

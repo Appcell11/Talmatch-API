@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Talmatch API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5ec919746d1af81aff1cd8fd3a2acf725a8ba4ca")]
 [assembly: System.Reflection.AssemblyProductAttribute("Talmatch API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Talmatch API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
