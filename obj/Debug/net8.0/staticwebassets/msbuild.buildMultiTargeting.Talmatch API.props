@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Talmatch API.props" />
+</Project>

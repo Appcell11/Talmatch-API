@@ -32,14 +32,14 @@ namespace Talmatch_API.Entidades
             Param.Add(new SqlParameter("@RUC", SqlDbType.VarChar));
             Param.Add(new SqlParameter("@Logo_URL", SqlDbType.VarChar));
             Param.Add(new SqlParameter("@Sitio_Web", SqlDbType.VarChar));
-            Param.Add(new SqlParameter("@id_sector", SqlDbType.Int));
-            Param.Add(new SqlParameter("@id_ciudad", SqlDbType.Int));
+            Param.Add(new SqlParameter("@id_sector", SqlDbType.VarChar));
+            Param.Add(new SqlParameter("@id_ciudad", SqlDbType.VarChar));
             Param.Add(new SqlParameter("@NOMBRES", SqlDbType.VarChar));
             Param.Add(new SqlParameter("@APELLIDOS", SqlDbType.VarChar));
             Param.Add(new SqlParameter("@CORREO", SqlDbType.VarChar));
             Param.Add(new SqlParameter("@CONTRASENA", SqlDbType.VarChar));
             Param.Add(new SqlParameter("@CELULAR", SqlDbType.VarChar));
-            Param.Add(new SqlParameter("@id_cargo", SqlDbType.Int));
+            Param.Add(new SqlParameter("@id_cargo", SqlDbType.VarChar));
 
             var Atri = new List<Object>();
             Atri.Add(emp.NOMBRE);

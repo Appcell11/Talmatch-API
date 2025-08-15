@@ -1,5 +1,6 @@
 ﻿using Datos;
 using Microsoft.Data.SqlClient;
+using System.Collections.Generic;
 using System.Data;
 
 namespace Talmatch_API.Entidades
@@ -14,7 +15,23 @@ namespace Talmatch_API.Entidades
             
         }
 
-        public static DataTable ListarUsuarios(string uni, string carrera, int exp, string modalidad, string disponibilidad, string idioma, string sexo, int pag) {
+        public static List<Dictionary<string, object>> DataTableToList(DataTable table)
+        {
+            var list = new List<Dictionary<string, object>>();
+            foreach (DataRow row in table.Rows)
+            {
+                var dict = new Dictionary<string, object>();
+                foreach (DataColumn col in table.Columns)
+                {
+                    dict[col.ColumnName] = row[col];
+                }
+                list.Add(dict);
+            }
+            return list;
+        }
+
+
+        public static List<Dictionary<string, object>> ListarUsuarios(string? uni, string? carrera, int? exp, string? modalidad, string? disponibilidad, string? idioma, string? sexo, int pag) {
             var resultado = new DataTable();
             
             var Param = new List<SqlParameter>();
@@ -46,7 +63,7 @@ namespace Talmatch_API.Entidades
                 Console.WriteLine(ex.Message);
             }
 
-            return resultado;
+            return DataTableToList(resultado);
         }
     }
 }

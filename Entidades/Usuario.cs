@@ -80,16 +80,16 @@ namespace Talmatch_API.Entidades
             var Param = new List<SqlParameter>();
             Param.Add(new SqlParameter("@NOMBRES", SqlDbType.VarChar));
             Param.Add(new SqlParameter("@APELLIDOS", SqlDbType.VarChar));
-            Param.Add(new SqlParameter("@FECHA_DE_NACIMIENTO", SqlDbType.VarChar));
+            Param.Add(new SqlParameter("@FECHA_DE_NACIMIENTO", SqlDbType.Date));
             Param.Add(new SqlParameter("@NumIdentificacion", SqlDbType.VarChar));
             Param.Add(new SqlParameter("@CORREO", SqlDbType.VarChar));
             Param.Add(new SqlParameter("@CONTRASENA", SqlDbType.VarChar));
             Param.Add(new SqlParameter("@CELULAR", SqlDbType.VarChar));
             Param.Add(new SqlParameter("@DIRECCION", SqlDbType.VarChar));
             Param.Add(new SqlParameter("@Foto_Perfil_URL", SqlDbType.VarChar));
-            Param.Add(new SqlParameter("@id_sexo", SqlDbType.Int));
-            Param.Add(new SqlParameter("@id_tipo_ident", SqlDbType.Int));
-            Param.Add(new SqlParameter("@id_ciudad", SqlDbType.Int));
+            Param.Add(new SqlParameter("@id_sexo", SqlDbType.VarChar));
+            Param.Add(new SqlParameter("@id_tipo_ident", SqlDbType.VarChar));
+            Param.Add(new SqlParameter("@id_ciudad", SqlDbType.VarChar));
             /// parametros para perfil laboral
             Param.Add(new SqlParameter("@Descripcion_personal", SqlDbType.Text));
             Param.Add(new SqlParameter("@Anos_exp", SqlDbType.Int));
@@ -97,10 +97,10 @@ namespace Talmatch_API.Entidades
             Param.Add(new SqlParameter("@Habilidades", SqlDbType.VarChar));
             Param.Add(new SqlParameter("@CV_url", SqlDbType.VarChar));
             Param.Add(new SqlParameter("@fecha_creacion", SqlDbType.Date));
-            Param.Add(new SqlParameter("@universidad", SqlDbType.Int));
-            Param.Add(new SqlParameter("@modalidad", SqlDbType.Int));
-            Param.Add(new SqlParameter("@carrera", SqlDbType.Int));
-            Param.Add(new SqlParameter("@disponibilidad", SqlDbType.Int));
+            Param.Add(new SqlParameter("@universidad", SqlDbType.VarChar));
+            Param.Add(new SqlParameter("@modalidad", SqlDbType.VarChar));
+            Param.Add(new SqlParameter("@carrera", SqlDbType.VarChar));
+            Param.Add(new SqlParameter("@disponibilidad", SqlDbType.VarChar));
 
 
             var Atri = new List<Object>();

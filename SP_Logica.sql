@@ -37,9 +37,9 @@ CREATE OR ALTER PROCEDURE sp_registrar_usuario
 	@CELULAR VARCHAR(20),
 	@DIRECCION VARCHAR(200),
 	@Foto_Perfil_URL VARCHAR(MAX),
-	@id_sexo int,
-	@id_tipo_ident int,
-	@id_ciudad int,
+	@id_sexo VARCHAR(20),
+	@id_tipo_ident VARCHAR(100),
+	@id_ciudad VARCHAR(100),
     --- parametros para perfil laboral
     @Descripcion_personal text,
     @Anos_exp int,
@@ -47,10 +47,10 @@ CREATE OR ALTER PROCEDURE sp_registrar_usuario
     @Habilidades varchar(255),
     @CV_url varchar(max),
     @fecha_creacion date,
-    @universidad int,
-    @modalidad int,
-    @carrera int,
-    @disponibilidad int
+    @universidad VARCHAR(100),
+    @modalidad VARCHAR(100),
+    @carrera VARCHAR(100),
+    @disponibilidad VARCHAR(100)
 )
 AS
 BEGIN
@@ -62,6 +62,23 @@ BEGIN
         END
 		ELSE
 		BEGIN
+        --OBTENER EL ID DE LAS REFERENCIAS
+            DECLARE @_id_sexo int;
+            DECLARE @_id_tipo_ident int;
+            DECLARE @_id_ciudad int;
+            DECLARE @_universidad int;
+            DECLARE @_modalidad int;
+            DECLARE @_carrera int;
+            DECLARE @_disponibilidad int;
+
+            SELECT @_id_sexo = ID_Sexo FROM Sexo WHERE Sexo.Genero = @id_sexo;
+            SELECT @_id_tipo_ident = ID_Tipo_Ident FROM Tipo_Identificacion WHERE Tipo_Identificacion.Nombre_Identificacion = @id_tipo_ident;
+            SELECT @_id_ciudad = ID_Ciudad FROM Ciudad WHERE Ciudad.Nombre_Ciudad = @id_ciudad;
+            SELECT @_universidad = ID_Universidad FROM Universidad WHERE Nombre_Universidad = @universidad;
+            SELECT @_modalidad = ID_Modalidad FROM Modalidad WHERE Nombre_Modalidad = @modalidad;
+            SELECT @_carrera = ID_Carrera FROM Carrera WHERE Nombre_Carrera = @carrera;
+            SELECT @_disponibilidad = ID_Disponibilidad FROM Disponibilidad_Laboral WHERE Nombre_Disponibilidad = @disponibilidad;
+
 			INSERT INTO Usuario
             VALUES (
                 @NOMBRES,
@@ -73,9 +90,9 @@ BEGIN
 	            @CELULAR,
 	            @DIRECCION,
 	            @Foto_Perfil_URL,
-	            @id_sexo,
-	            @id_tipo_ident,
-	            @id_ciudad,
+	            @_id_sexo,
+	            @_id_tipo_ident,
+	            @_id_ciudad,
                 1
             )
             
@@ -91,10 +108,10 @@ BEGIN
                 @CV_url ,
                 @fecha_creacion,
                 @ID_USUARIO,
-                @universidad ,
-                @modalidad ,
-                @carrera ,
-                @disponibilidad,
+                @_universidad ,
+                @_modalidad ,
+                @_carrera ,
+                @_disponibilidad,
                 1
             )
             IF EXISTS (SELECT 1 FROM Usuario WHERE ID_Usuario = @ID_USUARIO AND ID_ESTADO = 1)
@@ -120,15 +137,15 @@ CREATE OR ALTER PROCEDURE sp_registrar_reclutador
     @RUC VARCHAR(25),
 	@Logo_URL VARCHAR(MAX),
     @Sitio_Web varchar(Max),
-	@id_sector int,
-	@id_ciudad int,
+	@id_sector VARCHAR(100),
+	@id_ciudad VARCHAR(100),
     --- parametros para reclutador
     @NOMBRES VARCHAR(100),
     @APELLIDOS VARCHAR(100),
     @CORREO VARCHAR(100),
     @CONTRASENA VARCHAR(20),
 	@CELULAR VARCHAR(20),
-    @id_cargo int
+    @id_cargo VARCHAR(100)
 )
 AS
 BEGIN
@@ -140,14 +157,22 @@ BEGIN
         END
 		ELSE
 		BEGIN
+            DECLARE @_id_sector int;
+	        DECLARE @_id_ciudad int;
+            DECLARE @_id_cargo int;
+
+            SELECT @_id_sector = ID_Sector FROM Sector_Industria WHERE Sector_Industria.Nombre_Industria = @id_sector;
+            SELECT @_id_ciudad = ID_Ciudad FROM Ciudad WHERE Nombre_Ciudad = @id_ciudad;
+            SELECT @_id_cargo  = ID_Cargo FROM Cargo WHERE Nombre_Cargo = @id_cargo;
+
 			INSERT INTO Empresa
             VALUES (
                 @NOMBRE,
                 @RUC,
 	            @Logo_URL,
                 @Sitio_Web,
-	            @id_sector,
-	            @id_ciudad
+	            @_id_ciudad,
+	            @_id_sector
             )
 
 			DECLARE @ID_empresa INT;
@@ -160,7 +185,7 @@ BEGIN
                 @CORREO,
                 @CONTRASENA,
 	            @CELULAR,
-                @id_cargo,
+                @_id_cargo,
                 @ID_empresa,
                 1
             )
@@ -225,4 +250,3 @@ BEGIN
         SELECT 'ERROR' AS RESP;
     END CATCH
 END;
-

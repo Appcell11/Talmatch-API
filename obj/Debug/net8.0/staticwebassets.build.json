@@ -1,1 +1,11 @@
-{"Version":1,"Hash":"/eCJ4VpnydhoFPxrMJvC176FjD4rHZoNSFffgV8AWgU=","Source":"Talmatch API","BasePath":"_content/Talmatch API","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
+{
+  "Version": 1,
+  "Hash": "NI4dDWUN10W/nDh3O5G/naQmzjy7L+/aJucdwfL2uQw=",
+  "Source": "Talmatch API",
+  "BasePath": "_content/Talmatch API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
