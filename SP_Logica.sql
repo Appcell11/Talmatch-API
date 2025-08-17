@@ -10,11 +10,18 @@ BEGIN
 	BEGIN TRY
 		IF EXISTS (SELECT 1 FROM Usuario WHERE Correo = @CORREO AND Contrasena = @CONTRASENA AND ID_ESTADO = 1)
         BEGIN
-            SELECT 'PASS' AS RESP;
+            SELECT 'PASS USER' AS RESP;
         END
 		ELSE
 		BEGIN
-			SELECT 'NOT' AS RESP;
+			IF EXISTS (SELECT 1 FROM Reclutador WHERE Correo = @CORREO AND Contrasena = @CONTRASENA AND ID_ESTADO = 1)
+			BEGIN
+				SELECT 'PASS REC' AS RESP;
+			END
+			ELSE
+			BEGIN
+				SELECT 'NOT' AS RESP;
+			END
 		END
 	END TRY
     BEGIN CATCH
@@ -22,7 +29,8 @@ BEGIN
     END CATCH
 END
 GO
-
+select * from Usuario
+select * from Reclutador
 ----------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------
 go
@@ -56,7 +64,7 @@ AS
 BEGIN
     BEGIN TRY
         -- Validar existencia del usuario
-        IF EXISTS (SELECT 1 FROM Usuario WHERE Correo = @CORREO AND ID_ESTADO = 1)
+        IF EXISTS (SELECT 1 FROM Usuario WHERE Correo = @CORREO AND ID_ESTADO = 1) OR EXISTS (SELECT 1 FROM Reclutador WHERE Correo = @CORREO AND ID_ESTADO = 1)
         BEGIN
             SELECT 'EXIST' AS RESP;
         END
@@ -151,7 +159,7 @@ AS
 BEGIN
     BEGIN TRY
         -- Validar existencia del usuario
-        IF EXISTS (SELECT 1 FROM Empresa WHERE RUC = @RUC AND Nombre_Empresa = @NOMBRE)
+        IF EXISTS (SELECT 1 FROM Usuario WHERE Correo = @CORREO AND ID_ESTADO = 1) OR EXISTS (SELECT 1 FROM Reclutador WHERE Correo = @CORREO AND ID_ESTADO = 1)
         BEGIN
             SELECT 'EXIST' AS RESP;
         END
@@ -225,7 +233,8 @@ BEGIN
             Nombres,
             Apellidos,
             Carrera.Nombre_Carrera AS Carrera,
-            Anos_Experiencia AS Experiencia
+            Anos_Experiencia AS Experiencia,
+			Fecha_Creacion
         FROM Perfil_Laboral
         INNER JOIN Usuario ON Usuario.ID_Usuario = Perfil_Laboral.ID_Usuario
         INNER JOIN Carrera ON Carrera.ID_Carrera = Perfil_Laboral.ID_Carrera

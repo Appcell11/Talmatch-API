@@ -54,17 +54,9 @@ namespace Talmatch_API.Entidades
                 resultado = ProcesoAlmacenado.sp_execute("sp_iniciar_sesion", Param, Atri);
                 if (resultado.Rows.Count == 0 || resultado.Columns.Count == 0)
                     return "ERROR";
-                var estado = resultado.Rows[0][0].ToString();
+                string estado = resultado.Rows[0][0].ToString();
 
-                switch (estado)
-                {
-                    case "PASS":
-                        return "PASS"; 
-                    case "NOT":
-                        return "NOT";
-                    default:
-                        return "ERROR";
-                }
+                return estado;
             }
             catch (Exception ex)
             {

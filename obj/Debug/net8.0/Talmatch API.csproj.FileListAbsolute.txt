@@ -67,7 +67,6 @@ C:\Users\Lenovo\source\repos\Talmatch API\obj\Debug\net8.0\staticwebassets.build
 C:\Users\Lenovo\source\repos\Talmatch API\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\Lenovo\source\repos\Talmatch API\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\Lenovo\source\repos\Talmatch API\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\Lenovo\source\repos\Talmatch API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Lenovo\source\repos\Talmatch API\obj\Debug\net8.0\Talmatch.505A1D63.Up2Date
 C:\Users\Lenovo\source\repos\Talmatch API\obj\Debug\net8.0\Talmatch API.dll
 C:\Users\Lenovo\source\repos\Talmatch API\obj\Debug\net8.0\refint\Talmatch API.dll
@@ -148,3 +147,7 @@ C:\Users\print\Downloads\Talmatch API\obj\Debug\net8.0\refint\Talmatch API.dll
 C:\Users\print\Downloads\Talmatch API\obj\Debug\net8.0\Talmatch API.pdb
 C:\Users\print\Downloads\Talmatch API\obj\Debug\net8.0\Talmatch API.genruntimeconfig.cache
 C:\Users\print\Downloads\Talmatch API\obj\Debug\net8.0\ref\Talmatch API.dll
+C:\Users\Lenovo\source\repos\Talmatch API\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\Lenovo\source\repos\Talmatch API\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\Lenovo\source\repos\Talmatch API\bin\Debug\net8.0\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\Lenovo\source\repos\Talmatch API\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
